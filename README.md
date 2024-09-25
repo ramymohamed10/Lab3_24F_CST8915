@@ -59,8 +59,35 @@ For this step, refer to the instructions provided in previous labs where you set
 - In the Azure Portal, navigate to "App Services" and create a new Web App for each service:
   - **Name**: `order-service-app` and `product-service-app`
   - **Runtime stack**: Choose Node.js for order-service and Python (or the appropriate stack) for the rewritten product-service.
-
-#### 3.2. Deploy the Services
+#### 3.2. Edit `package.json` for Order-Service
+  - In `package.json` of `order-service`, make sure that `scripts` section include only the followings:
+    ```
+    "scripts": {
+      "test": "echo \"No tests available\""
+    }
+    ```
+  - `package.json` of the `order-service` should be as followings:
+    ```
+    {
+      "name": "order-service-algonquin-pet-store",
+      "version": "1.0.0",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"No tests available\""
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "description": "",
+      "dependencies": {
+        "amqplib": "^0.10.4",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2"
+      }
+    }
+    ```
+#### 3.3. Deploy the Services
 - Use the Azure CLI or Azure portal to deploy the code from your GitHub repositories to these Web Apps.
 - Ensure that the environment variables (e.g., RabbitMQ connection string, service ports) are set up in the Azure Web App settings.
 
